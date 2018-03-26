@@ -27,6 +27,9 @@ RUN mkdir "$ANDROID_HOME" .android \
  && rm sdk.zip \
  && yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
 
+RUN yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;25.0.2" "build-tools;25.0.3" "platforms;android-23" "platforms;android-25" \
+yes | $ANDROID_HOME/tools/bin/sdkmanager "extras;android;m2repository" "extras;google;m2repository" "extras;google;google_play_services"
+
 # Install Gradle
 RUN wget $GRADLE_URL -O gradle.zip \
  && unzip gradle.zip \
